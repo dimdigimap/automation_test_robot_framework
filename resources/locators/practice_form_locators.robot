@@ -1,0 +1,27 @@
+*** Variables ***
+${LOC_FIRST_NAME}         id=firstName
+${LOC_LAST_NAME}          id=lastName
+${LOC_EMAIL}              id=userEmail
+${LOC_GENDER_MALE}        xpath=//label[text()='Male']
+${LOC_GENDER_FEMALE}      xpath=//label[text()='Female']
+${LOC_GENDER_OTHER}       xpath=//label[text()='Other']
+${LOC_MOBILE}             id=userNumber
+${LOC_DATE_OF_BIRTH}      id=dateOfBirthInput
+${LOC_SUBJECTS}           id=subjectsInput
+${LOC_HOBBIES_SPORTS}     xpath=//label[text()='Sports']
+${LOC_HOBBIES_READING}    xpath=//label[text()='Reading']
+${LOC_HOBBIES_MUSIC}      xpath=//label[text()='Music']
+${LOC_UPLOAD_PICTURE}     id=uploadPicture
+${LOC_CURRENT_ADDRESS}    id=currentAddress
+${LOC_STATE}              id=state
+${LOC_STATE_INPUT}        xpath=//div[@id='state']//input
+${LOC_CITY}               id=city
+${LOC_CITY_INPUT}         xpath=//div[@id='city']//input
+${LOC_SUBMIT}             id=submit
+${LOC_SUCCESS_MODAL}      id=example-modal-sizes-title-lg
+${LOC_CLOSE_MODAL}        id=closeLargeModal
+${CSS_FIRST_NAME}              #firstName
+${CSS_LAST_NAME}               #lastName
+${CSS_EMAIL}                   #userEmail
+${CSS_MOBILE}                  #userNumber
+${CSS_CURRENT_ADDRESS}         #currentAddress
