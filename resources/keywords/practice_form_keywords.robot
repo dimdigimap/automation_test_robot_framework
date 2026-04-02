@@ -33,7 +33,6 @@ Input Mobile Number
 
 Input Date Of Birth
     [Arguments]    ${date}
-    # Clear existing value and input new date
     Press Keys    ${LOC_DATE_OF_BIRTH}    CTRL+a
     Input Text    ${LOC_DATE_OF_BIRTH}    ${date}
     Press Keys    ${LOC_DATE_OF_BIRTH}    ENTER
@@ -51,6 +50,10 @@ Select Hobbies
     FOR    ${hobby}    IN    @{hobbies}
         Click Element    xpath=//label[text()='${hobby}']
     END
+
+Upload Picture
+    [Arguments]    ${file_path}
+    Choose File    ${LOC_UPLOAD_PICTURE}    ${file_path}
 
 Input Current Address
     [Arguments]    ${address}
@@ -105,3 +108,26 @@ Verify Field Is Invalid
     ${is_invalid}=    Execute JavaScript
     ...    return !document.querySelector('\#${field_id}').validity.valid
     Should Be True    ${is_invalid}
+
+Verify Field Max Length
+    [Arguments]    ${field_id}    ${expected_max}
+    ${maxlength}=    Execute JavaScript
+    ...    return document.getElementById('${field_id}').getAttribute('maxlength')
+    Should Be Equal    ${maxlength}    ${expected_max}
+
+Verify Field Min Length
+    [Arguments]    ${field_id}    ${expected_min}
+    ${minlength}=    Execute JavaScript
+    ...    return document.getElementById('${field_id}').getAttribute('minlength')
+    Should Be Equal    ${minlength}    ${expected_min}
+
+Verify Date Of Birth Value
+    [Arguments]    ${expected_date}
+    ${value}=    Execute JavaScript
+    ...    return document.getElementById('dateOfBirthInput').value
+    Should Be Equal    ${value}    ${expected_date}
+
+Verify Date Of Birth Is Not Empty
+    ${value}=    Execute JavaScript
+    ...    return document.getElementById('dateOfBirthInput').value
+    Should Not Be Empty    ${value}

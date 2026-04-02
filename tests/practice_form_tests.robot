@@ -144,7 +144,6 @@ TC-007 Submit form lastname contains special char
     Verify Modal Contains    Reading
     [Teardown]    Close Browser
 
-
 TC-008 Submit form first name null
     [Documentation]    Verify field first name couldnt be null 
     [Tags]    smoke    positive
@@ -254,11 +253,7 @@ TC-014 Submit form email wrong format
     Select Hobbies    Reading
     Input Current Address    Jl. Prof. DR. Satrio No.Kav 3, RT.17/RW.4, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940
     Submit Form
-    Verify Form Submitted Successfully
-    Verify Modal Contains    Arsyad
-    Verify Modal Contains    arsyad@gmail.co.id
-    Verify Modal Contains    Accounting
-    Verify Modal Contains    Reading
+    Verify Field Is Invalid    ${CSS_EMAIL}
     [Teardown]    Close Browser
 
 TC-015 Submit form phone number null
@@ -273,5 +268,68 @@ TC-015 Submit form phone number null
     Select Hobbies    Reading
     Input Current Address    Jl. Prof. DR. Satrio No.Kav 3, RT.17/RW.4, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940
     Submit Form
+    Verify Field Is Invalid    ${CSS_MOBILE}
+    [Teardown]    Close Browser
+
+TC-016 Submit form phone char
+    [Documentation]    Verify field phone number couldnt be char
+    [Tags]    smoke    positive
+    Open Practice Form
+    Input Student Name       Arsyad    Tester  
+    Input Student Email    arsyad@gmailcoid
+    Select Gender    Male
+    Input Mobile Number    ABCDEFGH
+    Input Subjects    Accounting
+    Select Hobbies    Reading
+    Input Current Address    Jl. Prof. DR. Satrio No.Kav 3, RT.17/RW.4, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940
+    Submit Form
+    Verify Field Is Invalid    ${CSS_MOBILE}
+    [Teardown]    Close Browser
+
+TC-017 Submit form phone special char
+    [Documentation]    Verify field phone number couldnt be special char
+    [Tags]    smoke    positive
+    Open Practice Form
+    Input Student Name       Arsyad    Tester  
+    Input Student Email    arsyad@gmailcoid
+    Select Gender    Male
+    Input Mobile Number    ABCDEFGH
+    Input Subjects    Accounting
+    Select Hobbies    Reading
+    Input Current Address    Jl. Prof. DR. Satrio No.Kav 3, RT.17/RW.4, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940
+    Submit Form
+    Verify Field Is Invalid    ${CSS_MOBILE}
+    [Teardown]    Close Browser
+
+
+TC-018 Submit form phone 11 digits
+    [Documentation]    Verify field phone number couldnt be more than 10 digits
+    [Tags]    smoke    positive
+    Open Practice Form
+    Input Student Name       Arsyad    Tester  
+    Input Student Email    arsyad@gmailcoid
+    Select Gender    Male
+    Input Mobile Number    08122012121
+    Input Subjects    Accounting
+    Select Hobbies    Reading
+    Input Current Address    Jl. Prof. DR. Satrio No.Kav 3, RT.17/RW.4, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940
+    Submit Form
+    Verify Field Max Length    userNumber    10
+    Verify Field Is Invalid    ${CSS_MOBILE}
+    [Teardown]    Close Browser
+
+TC-018 Submit form phone 9 digits
+    [Documentation]    Verify field phone number couldnt be less than 10 digits
+    [Tags]    smoke    positive
+    Open Practice Form
+    Input Student Name       Arsyad    Tester  
+    Input Student Email    arsyad@gmailcoid
+    Select Gender    Male
+    Input Mobile Number    081220122
+    Input Subjects    Accounting
+    Select Hobbies    Reading
+    Input Current Address    Jl. Prof. DR. Satrio No.Kav 3, RT.17/RW.4, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940
+    Submit Form
+    Verify Field Max Length    userNumber    10
     Verify Field Is Invalid    ${CSS_MOBILE}
     [Teardown]    Close Browser
